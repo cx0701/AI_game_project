@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "model-coral-459217-v2",
+  "private_key_id": "fd1d00243bd267b803207de8f1e94d0a07857ff6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDiSuQa7XaGjm5P\npYdvG12hYIDcRYPENOopjW10aRwSaoSbFYuxzPp9eDDrGuwzTDli1qxRrfdRjP4s\nZN5TDu0QLALqlHqbJHpVIY52upaQ/zLawzpt3zFG5DYApEJa3pMQrvBYTb/6gnv5\nXKnjqcNQsZogxrvXp3bZgJtPfsAasmaYo/tMo9YnvuoJg274oxZTFcmM10Vxi9kI\njDnffkvaYFHIhTwkxLw6j1SBPg7FC+ypwyxaI8Df7Os18qlMeBKvn8BfbGboyDWi\nad4WSOEFyZTzIAgtLJXyWbZ7vUTTRw9rX2e4LijDME9qqD5vOZoPd93tt1I/98lg\nsx3oQ5hRAgMBAAECggEABBFuQ1up1KZtLj+0DRfJWZ7XV4kPuDBuqzuQewDEEUKv\n9UJwZfcLjm424ZXKJuvuYNaqIg0baUW8cLDe3FBkNkphl7T+n+5fx/WtTs4blH9k\npdEk/5enwPYA+zGjbb3FmA2vuBlXDlpX1IuevunXid+qJ9UFcyLevJnsG4Q++4aD\n2ta+x1YROtsfq9uysLN1A/0swPcsPUt29+VaGau6GZ1UoYY62+mg8iQROWABlJm3\niO4YyGFkFJgXCRCFfuCToyy9P3bZRn+ncZ9UnF68DOs1dZwPphEjhpxNmTQKnE9m\nrBYB/idsrz1ln4thY47yG6H1PSJW3YqZ9LcEu3XwSQKBgQD4VjKt3Efhegp3DRo/\n8JhRzU2ZX0RBiIXxW00TY04+rOtPsrutnRxwZWYxuSeS145Ju8xH8VaqMweaO4aw\n6FOJJqZtgQGvvdqSZDrg9JVqr3vJkRzVdbfRI9U6xiaJ7p/i8lkL43w0F8/KP/8o\nX2S4aFmgtlQ9wMkaFMh0FhZKRQKBgQDpRoyebtXgIBoY42pCdtzM+OcQBnqGpsdX\ndwAQyabZNUIcFRfgtKy1e+zngtT7V9xFiWeLndFMRqlabs17lPr1ubWMCx7nHNHo\n7o+O7HaRGj18+1cNBpg9IR+nKlBVWAed3PAIkyo5Cvcqdk/LuhNQtJyeinIufQ2M\nkhHSml6cnQKBgQCZS2RXTF4WwmYJXU4x4Au2mzvmjBcvON4twcVPTYK0T7ul49fU\ncOJoQz+VPA1AqM0NmN6eHkz4HS35N/uJ4rAGPpSHjhYDbPeqXDK4QGKni5GnOGuL\nHPKOKEds03pgtKt/xUfQfeliorxCxcR1IIWlC80f1s0jnYjGD8Q5XJT/3QKBgQCO\nAuXuOXk4hTJ9/kwdBDFtEwXPirIisPtf8tD2Z1yMlNCXOfwcTsFphnT1h39TN+yf\n5INFyqC097t3k0bCujKBTzoHdGmutqvPSxPYJXoU4c2W/YfEJUSeykBzyt225u1U\nHEGAZt7odRV9IyN22eOSWTGTjqLuTDDoZ7Az7sg0PQKBgQCiTQGEPUBjQ3PTRISi\nxZXapZp1lN+iLYRTbj4BU0RXjbk6hOVH1Xkw7ZOlGJCdDCDVGe/77saFuTOuDcjs\n6Wp28r6FqDPo2F3clcw0/41Nrh1h7MbEQNZdhsqG6UWrXd8LBilI8G1My2zrpgrl\nkIt1MhwpQbh7muSgKQjl3tunXg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cx0701@model-coral-459217-v2.iam.gserviceaccount.com",
+  "client_id": "112016884138164922678",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cx0701%40model-coral-459217-v2.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

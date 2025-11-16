@@ -1,0 +1,425 @@
+using System;
+
+// ReSharper disable All
+namespace Glitch9.AIDevKit.OpenAI
+{
+    public class OpenAIModel
+    {
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o1_Mini_2024_09_12 = "o1-mini-2024-09-12";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_5_Preview = "gpt-4.5-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_2024_11_20 = "gpt-4o-2024-11-20";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o3_Mini_2025_01_31 = "o3-mini-2025-01-31";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o3_Mini = "o3-mini";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Mini_Audio_Preview = "gpt-4o-mini-audio-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o1 = "o1";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_5_Preview_2025_02_27 = "gpt-4.5-preview-2025-02-27";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o1_2024_12_17 = "o1-2024-12-17";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Audio_Preview_2024_12_17 = "gpt-4o-audio-preview-2024-12-17";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Audio_Preview = "gpt-4o-audio-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Audio_Preview_2024_10_01 = "gpt-4o-audio-preview-2024-10-01";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o1_Mini = "o1-mini";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT_Image_1 = "gpt-image-1";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o1_Preview = "o1-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Mini_Audio_Preview_2024_12_17 = "gpt-4o-mini-audio-preview-2024-12-17";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o1_Preview_2024_09_12 = "o1-preview-2024-09-12";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Search_Preview_2025_03_11 = "gpt-4o-search-preview-2025-03-11";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Mini_Search_Preview_2025_03_11 = "gpt-4o-mini-search-preview-2025-03-11";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_1_Nano = "gpt-4.1-nano";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_1_Nano_2025_04_14 = "gpt-4.1-nano-2025-04-14";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_1_Mini = "gpt-4.1-mini";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_1_Mini_2025_04_14 = "gpt-4.1-mini-2025-04-14";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_1 = "gpt-4.1";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_1_2025_04_14 = "gpt-4.1-2025-04-14";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Search_Preview = "gpt-4o-search-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o4_Mini = "o4-mini";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Mini_TTS = "gpt-4o-mini-tts";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o1_Pro = "o1-pro";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o1_Pro_2025_03_19 = "o1-pro-2025-03-19";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Mini_Transcribe = "gpt-4o-mini-transcribe";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Transcribe = "gpt-4o-transcribe";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Mini_Search_Preview = "gpt-4o-mini-search-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string o4_Mini_2025_04_16 = "o4-mini-2025-04-16";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string ChatGPT4o_Latest = "chatgpt-4o-latest";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// gpt-4-1106-vision-preview is an advanced AI model by OpenAI that combines
+        /// natural language processing with image understanding enabling users to interact
+        /// with both text and visual data for enhanced AI-driven insights and responses
+        /// </summary>
+        [Obsolete("This model is deprecated.")]
+        public const string GPT4_1106_Vision_Preview = "gpt-4-1106-vision-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Mini = "gpt-4o-mini";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string Curie_Ft_Munchkin_Productions_2022_09_29_07_37_01 = "curie:ft-munchkin-productions-2022-09-29-07-37-01";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string Curie_Ft_Munchkin_Productions_2022_09_29_07_50_57 = "curie:ft-munchkin-productions-2022-09-29-07-50-57";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT3_5_Turbo = "gpt-3.5-turbo";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT3_5_Turbo_16k = "gpt-3.5-turbo-16k";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_0613 = "gpt-4-0613";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4 = "gpt-4";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string Davinci002 = "davinci-002";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string Babbage002 = "babbage-002";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT3_5_Turbo_Instruct = "gpt-3.5-turbo-instruct";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT3_5_Turbo_Instruct_0914 = "gpt-3.5-turbo-instruct-0914";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// GPT-4 Vision Preview is a multimodal AI model developed by OpenAI capable of
+        /// understanding
+        /// and generating text as well as processing images to provide insightful
+        /// responses and engage in advanced visual reasoning
+        /// </summary>
+        [Obsolete("This model is deprecated.")]
+        public const string GPT4_Vision_Preview = "gpt-4-vision-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_1106_Preview = "gpt-4-1106-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_2024_08_06 = "gpt-4o-2024-08-06";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT3_5_Turbo_1106 = "gpt-3.5-turbo-1106";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o = "gpt-4o";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_Turbo_2024_04_09 = "gpt-4-turbo-2024-04-09";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_Turbo = "gpt-4-turbo";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT3_5_Turbo_0125 = "gpt-3.5-turbo-0125";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_0125_Preview = "gpt-4-0125-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_2024_05_13 = "gpt-4o-2024-05-13";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4_Turbo_Preview = "gpt-4-turbo-preview";
+
+        /// <summary>
+        /// OpenAI's Large Language Model
+        /// </summary>
+        public const string GPT4o_Mini_2024_07_18 = "gpt-4o-mini-2024-07-18";
+
+        /// <summary>
+        /// OpenAI's Stable Diffusion (Image)
+        /// </summary>
+        public const string DallE3 = "dall-e-3";
+
+        /// <summary>
+        /// OpenAI's Stable Diffusion (Image)
+        /// </summary>
+        public const string DallE2 = "dall-e-2";
+
+        /// <summary>
+        /// OpenAI's Text To Speech
+        /// </summary>
+        public const string TTS1_HD = "tts-1-hd";
+
+        /// <summary>
+        /// OpenAI's Text To Speech
+        /// </summary>
+        public const string TTS1_1106 = "tts-1-1106";
+
+        /// <summary>
+        /// OpenAI's Text To Speech
+        /// </summary>
+        public const string TTS1_HD_1106 = "tts-1-hd-1106";
+
+        /// <summary>
+        /// OpenAI's Text To Speech
+        /// </summary>
+        public const string TTS1 = "tts-1";
+
+        /// <summary>
+        /// OpenAI's Speech To Text
+        /// </summary>
+        public const string Whisper1 = "whisper-1";
+
+        /// <summary>
+        /// OpenAI's Embedding
+        /// </summary>
+        public const string Text_Embedding_Ada_002 = "text-embedding-ada-002";
+
+        /// <summary>
+        /// OpenAI's Embedding
+        /// </summary>
+        public const string Text_Embedding_3_Small = "text-embedding-3-small";
+
+        /// <summary>
+        /// OpenAI's Embedding
+        /// </summary>
+        public const string Text_Embedding_3_Large = "text-embedding-3-large";
+
+        /// <summary>
+        /// OpenAI's Moderation
+        /// OpenAI's Text Moderation Latest is a tool designed to assist in filtering
+        /// and flagging content across various platforms ensuring that harmful
+        /// or inappropriate material is effectively moderated
+        /// </summary>
+        [Obsolete("This model is deprecated.")]
+        public const string Text_Moderation_Latest = "text-moderation-latest";
+
+        /// <summary>
+        /// OpenAI's Moderation
+        /// Text Moderation 007 is a model designed to detect
+        /// and filter harmful content ensuring a safe and respectful environment for users
+        /// </summary>
+        [Obsolete("This model is deprecated.")]
+        public const string Text_Moderation_007 = "text-moderation-007";
+
+        /// <summary>
+        /// OpenAI's Moderation
+        /// Text Moderation Stable is an AI model designed to identify
+        /// and filter harmful content in text ensuring a safer online environment for
+        /// users through advanced natural language processing techniques
+        /// </summary>
+        [Obsolete("This model is deprecated.")]
+        public const string Text_Moderation_Stable = "text-moderation-stable";
+
+        /// <summary>
+        /// OpenAI's Moderation
+        /// </summary>
+        public const string Omni_Moderation_Latest = "omni-moderation-latest";
+
+        /// <summary>
+        /// OpenAI's Moderation
+        /// </summary>
+        public const string Omni_Moderation_2024_09_26 = "omni-moderation-2024-09-26";
+
+        /// <summary>
+        /// OpenAI's Realtime Interaction
+        /// </summary>
+        public const string GPT4o_Realtime_Preview_2024_12_17 = "gpt-4o-realtime-preview-2024-12-17";
+
+        /// <summary>
+        /// OpenAI's Realtime Interaction
+        /// </summary>
+        public const string GPT4o_Mini_Realtime_Preview_2024_12_17 = "gpt-4o-mini-realtime-preview-2024-12-17";
+
+        /// <summary>
+        /// OpenAI's Realtime Interaction
+        /// </summary>
+        public const string GPT4o_Mini_Realtime_Preview = "gpt-4o-mini-realtime-preview";
+
+        /// <summary>
+        /// OpenAI's Realtime Interaction
+        /// </summary>
+        public const string GPT4o_Realtime_Preview_2024_10_01 = "gpt-4o-realtime-preview-2024-10-01";
+
+        /// <summary>
+        /// OpenAI's Realtime Interaction
+        /// </summary>
+        public const string GPT4o_Realtime_Preview = "gpt-4o-realtime-preview";
+
+    }
+
+}

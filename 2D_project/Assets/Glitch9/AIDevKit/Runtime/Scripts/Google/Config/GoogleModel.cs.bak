@@ -1,0 +1,668 @@
+using System;
+
+// ReSharper disable All
+namespace Glitch9.AIDevKit.Google
+{
+    public class GoogleModel
+    {
+        /// <summary>
+        /// Google's Large Language Model
+        /// Model trained to return answers to questions that are grounded in provided
+        /// sources, along with estimating answerable probability.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 1024 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 7168 tokens can be processed at a time.
+        /// </remarks>
+        public const string Aqa = "models/aqa";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// </summary>
+        [Obsolete("This model is deprecated.")]
+        public const string Gemini1_0_Pro = "models/gemini-1.0-pro";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// </summary>
+        [Obsolete("This model is deprecated.")]
+        public const string Gemini1_0_Pro_Latest = "models/gemini-1.0-pro-latest";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// </summary>
+        [Obsolete("This model is deprecated.")]
+        public const string Gemini1_0_Pro_001 = "models/gemini-1.0-pro-001";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Version of Gemini 1.
+        /// 5 Flash that supports tuning,
+        /// our fast and versatile multimodal model for scaling across diverse tasks,
+        /// released in May of 2024.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 16384 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash_001_Tuning = "models/gemini-1.5-flash-001-tuning";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Stable version of Gemini 1.
+        /// 5 Flash,
+        /// our fast and versatile multimodal model for scaling across diverse tasks,
+        /// released in May of 2024.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash_001 = "models/gemini-1.5-flash-001";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Stable version of Gemini 1.
+        /// 5 Pro, our mid-size multimodal model that supports up to 2 million tokens,
+        /// released in May of 2024.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 2000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Pro = "models/gemini-1.5-pro";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Stable version of Gemini 1.
+        /// 5 Pro, our mid-size multimodal model that supports up to 2 million tokens,
+        /// released in May of 2024.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 2000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Pro_001 = "models/gemini-1.5-pro-001";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// The original Gemini 1.
+        /// 0 Pro Vision model version which was optimized for image understanding.
+        /// Gemini 1.0 Pro Vision was deprecated on July 12, 2024.
+        /// Move to a newer Gemini version.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 4096 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 12288 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini_Pro_Vision = "models/gemini-pro-vision";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// The original Gemini 1.
+        /// 0 Pro Vision model version which was optimized for image understanding.
+        /// Gemini 1.0 Pro Vision was deprecated on July 12, 2024.
+        /// Move to a newer Gemini version.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 4096 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 12288 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_0_Pro_Vision_Latest = "models/gemini-1.0-pro-vision-latest";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Experimental release (August 27th, 2024) of Gemini 1.
+        /// 5 Flash-8B, our smallest and most cost effective Flash model.
+        /// Replaced by Gemini-1.5-flash-8b-001 (stable).
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash_8b_Exp_0827 = "models/gemini-1.5-flash-8b-exp-0827";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Stable version of Gemini 1.
+        /// 5 Flash,
+        /// our fast and versatile multimodal model for scaling across diverse tasks,
+        /// released in September of 2024.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash_002 = "models/gemini-1.5-flash-002";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Stable version of Gemini 1.
+        /// 5 Pro, our mid-size multimodal model that supports up to 2 million tokens,
+        /// released in September of 2024.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 2000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Pro_002 = "models/gemini-1.5-pro-002";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Experimental release (September 24th, 2024) of Gemini 1.
+        /// 5 Flash-8B, our smallest and most cost effective Flash model.
+        /// Replaced by Gemini-1.5-flash-8b-001 (stable).
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash_8b_Exp_0924 = "models/gemini-1.5-flash-8b-exp-0924";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Alias that points to the most recent production (non-experimental) release of
+        /// Gemini 1.
+        /// 5 Flash-8B, our smallest and most cost effective Flash model,
+        /// released in October of 2024.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash_8b_Latest = "models/gemini-1.5-flash-8b-latest";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Stable version of Gemini 1.
+        /// 5 Flash-8B, our smallest and most cost effective Flash model,
+        /// released in October of 2024.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash_8b_001 = "models/gemini-1.5-flash-8b-001";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Stable version of Gemini 1.
+        /// 5 Flash-8B, our smallest and most cost effective Flash model,
+        /// released in October of 2024.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash_8b = "models/gemini-1.5-flash-8b";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Stable version of Gemini 2.
+        /// 0 Flash,
+        /// our fast and versatile multimodal model for scaling across diverse tasks,
+        /// released in January of 2025.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_001 = "models/gemini-2.0-flash-001";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Experimental release (January 21st, 2025) of Gemini 2.0 Flash Thinking
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 65536 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Thinking_Exp = "models/gemini-2.0-flash-thinking-exp";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Experimental release (January 21st, 2025) of Gemini 2.0 Flash Thinking
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 65536 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Thinking_Exp_01_21 = "models/gemini-2.0-flash-thinking-exp-01-21";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Preview release (February 5th, 2025) of Gemini 2.0 Flash Lite
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Lite_Preview_02_05 = "models/gemini-2.0-flash-lite-preview-02-05";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Preview release (February 5th, 2025) of Gemini 2.0 Flash Lite
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Lite_Preview = "models/gemini-2.0-flash-lite-preview";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Experimental release (March 25th, 2025) of Gemini 2.5 Pro
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 65536 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Pro_Exp_02_05 = "models/gemini-2.0-pro-exp-02-05";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Experimental release (March 25th, 2025) of Gemini 2.5 Pro
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 65536 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini_Exp_1206 = "models/gemini-exp-1206";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Alias that points to the most recent production (non-experimental) release of
+        /// Gemini 1.
+        /// 5 Flash,
+        /// our fast and versatile multimodal model for scaling across diverse tasks.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash_Latest = "models/gemini-1.5-flash-latest";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Experimental release (March 25th, 2025) of Gemini 2.5 Pro
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 65536 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Pro_Exp = "models/gemini-2.0-pro-exp";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Experimental release (March 25th, 2025) of Gemini 2.5 Pro
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 65536 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_5_Pro_Exp_03_25 = "models/gemini-2.5-pro-exp-03-25";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Gemma 3 12B is an advanced AI model that excels in understanding
+        /// and generating human-like text while supporting a wide range of applications
+        /// from chatbots to content creation
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 32768 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemma3_12b_It = "models/gemma-3-12b-it";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Preview release (April 17th, 2025) of Gemini 2.5 Flash
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 65536 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_5_Flash_Preview_04_17 = "models/gemini-2.5-flash-preview-04-17";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Gemini 2.5 Pro Preview 03-25
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 65536 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_5_Pro_Preview_03_25 = "models/gemini-2.5-pro-preview-03-25";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// A legacy model that understands text and generates text as an output
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 1024 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 8196 tokens can be processed at a time.
+        /// </remarks>
+        public const string Text_Bison_001 = "models/text-bison-001";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Gemini 2.0 Flash-Lite
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Lite = "models/gemini-2.0-flash-lite";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 32768 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemma3_1b_It = "models/gemma-3-1b-it";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Gemma 3 4B is a state of the art language model designed to understand
+        /// and generate human like text with high accuracy
+        /// and fluency in various applications
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 32768 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemma3_4b_It = "models/gemma-3-4b-it";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Alias that points to the most recent stable version of Gemini 1.
+        /// 5 Flash,
+        /// our fast and versatile multimodal model for scaling across diverse tasks.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Flash = "models/gemini-1.5-flash";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 131072 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemma3_27b_It = "models/gemma-3-27b-it";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Gemini 2.0 Flash
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash = "models/gemini-2.0-flash";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Gemini 2.0 Flash Thinking Experimental
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 65536 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Thinking_Exp_1219 = "models/gemini-2.0-flash-thinking-exp-1219";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// LearnLM 2.0 Flash Experimental
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 32768 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Learnlm2_0_Flash_Experimental = "models/learnlm-2.0-flash-experimental";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// </summary>
+        [Obsolete("This model is deprecated.")]
+        public const string Gemini_Pro = "models/gemini-pro";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Gemini 2.0 Flash Experimental
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Exp = "models/gemini-2.0-flash-exp";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Gemini 2.0 Flash (Image Generation) Experimental
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Exp_Image_Generation = "models/gemini-2.0-flash-exp-image-generation";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Gemini 2.0 Flash 001
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 131072 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Live_001 = "models/gemini-2.0-flash-live-001";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Stable version of Gemini 2.0 Flash Lite
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1048576 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini2_0_Flash_Lite_001 = "models/gemini-2.0-flash-lite-001";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Alias that points to the most recent production (non-experimental) release of
+        /// Gemini 1.
+        /// 5 Pro, our mid-size multimodal model that supports up to 2 million tokens.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 2000000 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini1_5_Pro_Latest = "models/gemini-1.5-pro-latest";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// A legacy text-only model optimized for chat conversations
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 1024 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 4096 tokens can be processed at a time.
+        /// </remarks>
+        public const string Chat_Bison_001 = "models/chat-bison-001";
+
+        /// <summary>
+        /// Google's Large Language Model
+        /// Alias that points to the most recent stable version of Gemini 1.
+        /// 5 Pro, our mid-size multimodal model that supports up to 2 million tokens.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 32767 tokens can be processed at a time.
+        /// </remarks>
+        public const string Learnlm1_5_Pro_Experimental = "models/learnlm-1.5-pro-experimental";
+
+        /// <summary>
+        /// Google's Stable Diffusion (Image)
+        /// Vertex served Imagen 3.0 002 model
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 8192 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 480 tokens can be processed at a time.
+        /// </remarks>
+        public const string Imagen3_0_Generate_002 = "models/imagen-3.0-generate-002";
+
+        /// <summary>
+        /// Google's Embedding
+        /// Obtain a distributed representation of a text.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 1 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 2048 tokens can be processed at a time.
+        /// </remarks>
+        public const string Embedding001 = "models/embedding-001";
+
+        /// <summary>
+        /// Google's Embedding
+        /// Obtain a distributed representation of a text.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 1 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 8192 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini_Embedding_Exp = "models/gemini-embedding-exp";
+
+        /// <summary>
+        /// Google's Embedding
+        /// Obtain a distributed representation of a text.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 1 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 2048 tokens can be processed at a time.
+        /// </remarks>
+        public const string Text_Embedding_004 = "models/text-embedding-004";
+
+        /// <summary>
+        /// Google's Embedding
+        /// Obtain a distributed representation of a text.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 1 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 8192 tokens can be processed at a time.
+        /// </remarks>
+        public const string Gemini_Embedding_Exp_03_07 = "models/gemini-embedding-exp-03-07";
+
+        /// <summary>
+        /// Google's Embedding
+        /// Obtain a distributed representation of a text.
+        /// </summary>
+        /// <remarks>
+        /// Returns a maximum of 1 tokens.
+        /// </remarks>
+        /// <remarks>
+        /// A maximum of 1024 tokens can be processed at a time.
+        /// </remarks>
+        public const string Embedding_Gecko_001 = "models/embedding-gecko-001";
+
+    }
+
+}
